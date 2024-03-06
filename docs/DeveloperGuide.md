@@ -262,42 +262,61 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* has a need to manage a significant number of employees
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: manage employees faster than a typical mouse/GUI driven app
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                   | I want to …​                 | So that I can…​                                                          |
+| -------- |-------------------------------------------|------------------------------|--------------------------------------------------------------------------|
+| `* * *`  | new user                                  | see usage instructions       | refer to instructions when I forget how to use the App                   |
+| `* * *`  | user                                      | add a new employee           |                                                                          |
+| `* * *`  | user                                      | delete an employee           | remove entries that I no longer need                                     |
+| `* * *`  | user                                      | list all employees           | see all my existing employees and their respective IDs.                  |
+| `* * *`  | user                                      | find an employee by name     | locate details of employees without having to go through the entire list |
+| `* *`    | user                                      | hide private contact details | minimize chance of someone else seeing them by accident                  |
+| `*`      | user with many employees in TaskMasterPro | sort employees by name       | locate an employee easily                                                |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `TaskMasterPro` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: Add an employee**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User requests to add an employee to TaskMasterPro
+2.  TaskMasterPro adds the employee
+
+    Use case ends.
+
+**Use case: List employees**
+
+**MSS**
+
+1.  User requests to list employees
+2.  TaskMasterPro shows a list of employees
+
+    Use case ends.
+
+**Use case: Delete an employee**
+
+**MSS**
+
+1.  User requests to list employees
+2.  TaskMasterPro shows a list of employees
+3.  User requests to delete a specific employee in the list using his/her index(Employee ID)
+4.  TaskMasterPro deletes the person
 
     Use case ends.
 
@@ -309,7 +328,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. TaskMasterPro shows an error message.
 
       Use case resumes at step 2.
 
@@ -356,17 +375,17 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a person
+### Deleting an employee
 
-1. Deleting a person while all persons are being shown
+1. Deleting an employee while all employees are being shown
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+   1. Prerequisites: List all employees using the `listemployees` command. Multiple employees in the list.
 
    1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+      Expected: First employee is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
    1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+      Expected: No employee is deleted. Error details shown in the status message. Status bar remains the same.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
