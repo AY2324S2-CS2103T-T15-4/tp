@@ -316,7 +316,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  User requests to list employees
 2.  TaskMasterPro shows a list of employees
 3.  User requests to delete a specific employee in the list using his/her index(Employee ID)
-4.  TaskMasterPro deletes the person
+4.  TaskMasterPro deletes the employee
 
     Use case ends.
 
