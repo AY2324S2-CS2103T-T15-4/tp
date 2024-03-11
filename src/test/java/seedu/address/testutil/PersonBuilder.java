@@ -101,6 +101,12 @@ public class PersonBuilder {
         return new Person(name, phone, email, address, remark, tags);
     }
 
+    /**
+     * Sets the remark for the person being built and returns the PersonBuilder instance.
+     *
+     * @param remark the remark to set for the person
+     * @return the PersonBuilder instance with the specified remark set
+     */
     public PersonBuilder withRemark(String remark) {
         this.remark = new Remark(remark);
         return this;
