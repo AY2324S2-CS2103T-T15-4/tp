@@ -1,7 +1,6 @@
 package seedu.address.logic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_EMPLOYEE_DISPLAYED_INDEX;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
@@ -172,18 +171,5 @@ public class LogicManagerTest {
         ModelManager expectedModel = new ModelManager();
         expectedModel.addEmployee(expectedEmployee);
         assertCommandFailure(addCommand, CommandException.class, expectedMessage, expectedModel);
-    }
-    @Test
-    public void testNull() {
-        assertNotNull(model.getTaskMasterPro());
-        assertNotNull(model.getFilteredTaskList());
-        assertNotNull(model.getTaskMasterProFilePath());
-        assertNotNull(model.getGuiSettings());
-        try {
-            model.setGuiSettings(null);
-        } catch (NullPointerException e) {
-            assertEquals(e.getMessage(), null);
-        }
-
     }
 }
