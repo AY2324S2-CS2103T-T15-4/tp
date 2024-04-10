@@ -36,7 +36,7 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `taskmasterpro.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-4/tp/releases/tag/v1.2).
+1. Download the latest `taskmasterpro.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-4/tp/releases/tag/v1.3.1).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your TaskMasterPro.
 
@@ -85,6 +85,10 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+
+* Any command that requires `EMPLOYEE_ID` or `TASK_ID` as a parameter does not refer to the nominal number in the list but rather specifically the id as indicated below:
+![id position](images/indicateIdPosition.png)
+![id position_2](images/indicateIdPosition2.png)
 </div>
 
 ### Viewing help : `help`
@@ -103,6 +107,28 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Make sure that your parameter's formats are valid!
+
+NAME : Only alphanumeric characters and spaces
+
+PHONE_NUMBER : Should be an 8 digit number beginning with either 6, 8 or 9
+
+EMAIL : Should be of the format local-part@domain and adhere to the following constraints,
+
+1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters. 
+2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods.
+   
+   The domain name must:
+   * end with a domain label at least 2 characters long
+   * have each domain label start and end with alphanumeric characters
+</div>
+<br/>
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+
+As of now you cannot create multiple employees with the same name.
+
+There are also certain problems that could occur if you are not careful with some parameters!
+
+NAME : This is case-sensitive and whitespace sensitive, you could accidentally add multiple of the same employee with different capitalizations.
 </div>
 
 Examples:
@@ -124,6 +150,10 @@ Format: `edit EMPLOYEE_ID [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 You can specify `t/` multiple times to add more tags
 </div>
+<br/>
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+When you run this function with `t/` all the existing tags will be removed if not specified again.
+</div>
 
 Examples:
 * `edit 1 n/AikenDueet p/82311231 e/aiken@example.com`
@@ -137,8 +167,6 @@ Format: `delete EMPLOYEE_ID`
 
 * The `EMPLOYEE_ID` refers to the index number shown in the displayed employee list.
   Make sure that its valid!
-
-![id position](images/indicateIdPosition.png)
 
 Examples:
 * `list` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
@@ -166,6 +194,10 @@ Format: `task TASK_DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The description for the task is required and can be any length with spaces in between
+</div>
+<br/>
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+Avoid naming 2 tasks with the same name as TaskMasterPro will not differentiate them! It could make things complicated!
 </div>
 
 Examples:
@@ -296,6 +328,7 @@ Furthermore, certain edits can cause TaskMasterPro to behave in unexpected ways 
 ## Known Issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+2. **For advanced users who choose to manually change the JSON file**, you could change the employee and task id to negative. This could potentially reset the system but there is also a chance that the system will load with the indicated negative ids, the application will function as normal with the negative id. This will be addressed in a future iteration.
 
 --------------------------------------------------------------------------------------------------------------------
 
