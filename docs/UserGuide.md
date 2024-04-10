@@ -28,7 +28,8 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
    20. [Editing the data file](#editing-the-data-file)
 21. [FAQ](#faq)
 22. [Known Issues](#known-issues)
-23. [Command Summary](#command-summary)
+23. [Future Enhancements](#future-enhancements)
+24. [Command Summary](#command-summary)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -106,7 +107,8 @@ Adds an employee to TaskMasterPro.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Make sure that your parameter's formats are valid!
+TaskMasterPro enforces various constraints given below. On top of adhering to the constraints, 
+please make sure that your parameters (eg. EMAIL) actually exists because TaskMasterPro will not check for that!
 
 NAME : Only alphanumeric characters and spaces
 
@@ -329,6 +331,16 @@ Furthermore, certain edits can cause TaskMasterPro to behave in unexpected ways 
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 2. **For advanced users who choose to manually change the JSON file**, you could change the employee and task id to negative. This could potentially reset the system but there is also a chance that the system will load with the indicated negative ids, the application will function as normal with the negative id. This will be addressed in a future iteration.
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+## Future Enhancements
+
+1. Users will **no longer** be allowed to manually set the employee and task id to negative in the JSON file.
+2. To increase efficiency, the UI will be split into **two separate windows**, one for employees and one for tasks.
+3. After marking a task that has been assigned to employees, there will be **indications** to show that the task has been completed under the employee's list of tasks.
+4. **More constraints** will be added to the email field to forbid dubious email domains. 
 
 --------------------------------------------------------------------------------------------------------------------
 
