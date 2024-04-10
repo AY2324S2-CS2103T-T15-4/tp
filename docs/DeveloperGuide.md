@@ -372,9 +372,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *` | user                                       | save current data                            | keep track of all data even after exiting                         |
 | `* * *` | user                                       | load saved data                              | use the data that was saved previously                            |
 | `* * `  | user                                       | find tasks by name                           | quickly locate specific tasks that I remember                     |
-| `* * `  | user                                       | find employees by name                        | locate an employee easily                                         |
+| `*`     | user with many employees in the TaskMasterPro | sort employees by name                       | locate a employee easily                                          |
 
-*{More to be added in the future}*
+*{More to be added for v1.3}*
 
 ### Use cases
 
@@ -577,19 +577,3 @@ testers are expected to do more *exploratory* testing.
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
-
-## **Planned Enhancements**
-
-Given below is the list of our planned enhancements. Our team size is 4, allowing us to have 8 enhancements in total.
-
-1. **Add validity checking for manual editing of ID**: The current implementation allows ID to be manually set to negative values in the JSON file. While this does not break other commands, this should not be allowed and will be fixed in a future iteration.
-2. **Commands can be difficult to use due to inability to see both employees and tasks at the same time**: The current implementation only allows for 1 view at once. To increase efficiency, the UI will be split into **2 separate windows**, one for employees and one for tasks.
-3. **Marking a task as done could be more meaningful**: After marking a task that has been assigned to employees, there should be **indications** to show that the task has been completed under the employee's list of tasks.
-   1. For example: `4: pe-dry-run (Completed)`.
-4. **Email domains currently accept dubious values**: More **constraints** will be added to the email field to forbid dubious email domains.
-   1. For example, the email domain `testingthetopleveldomaincom` will be forbidden.
-5. **Certain error messages could be more specific**: The current error message for assigning/unassigning task `The Task ID provided is invalid` is too general. This will be changed
-     to mention why exactly the command failed. For example: `Unassign task failed. The employee does not have the given task ID`.
-6. **Same name employees should be allowed to be added**: While it is feasible for multiple different employees to have the same name, the current implementation does not allow same name employees to be added. This will be changed in a future enhancement.
-7. **The format for assigntask and unassigntask can be confusing**: The current format for both the commands are ```command taskid employeeid```. This can be confusing as both taskid and employeeid refer to integers and can be easily mixed up. The use of prefixes will be added in the future to differentiate between the two different IDs.
-8. **ID of deleted employees or tasks are not reused**: While it is unlikely that the number of employees or tasks hit the integer limit, a future enhancement will account for this possibility and reuse unused IDs should the number reach close to the limit.
